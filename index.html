@@ -1,0 +1,787 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OBF 營運系統線上說明會｜曜序國際</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+      background: #0f0f14;
+      color: #e8e8ed;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+      background: 
+        radial-gradient(ellipse at 20% 50%, rgba(99,102,241,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(139,92,246,0.06) 0%, transparent 50%),
+        #0f0f14;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.3);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8em;
+      color: #a5b4fc;
+      width: fit-content;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero-title {
+      font-size: 2.2em;
+      font-weight: 800;
+      line-height: 1.3;
+      color: #fff;
+    }
+
+    .hero-title .highlight {
+      background: linear-gradient(135deg, #a78bfa, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1em;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+    }
+
+    .event-details {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .event-detail-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9em;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .event-detail-item i {
+      color: #a5b4fc;
+      width: 18px;
+      text-align: center;
+    }
+
+    .form-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 36px;
+      backdrop-filter: blur(10px);
+    }
+
+    .form-card h3 {
+      font-size: 1.4em;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .form-sub {
+      font-size: 0.85em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85em;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 0.95em;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #6366f1;
+    }
+
+    .form-group input::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+
+    .form-group select option {
+      background: #1a1a2e;
+      color: #fff;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(99,102,241,0.3);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-note {
+      text-align: center;
+      font-size: 0.75em;
+      color: rgba(255,255,255,0.4);
+      margin-top: 12px;
+    }
+
+    .pain-section {
+      padding: 80px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-header h2 {
+      font-size: 1.8em;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .section-header p {
+      color: rgba(255,255,255,0.5);
+      font-size: 1em;
+    }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .pain-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .pain-icon {
+      font-size: 1.4em;
+      flex-shrink: 0;
+    }
+
+    .pain-item p {
+      font-size: 0.95em;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .learn-section {
+      padding: 80px 24px;
+      background: rgba(99,102,241,0.03);
+    }
+
+    .learn-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+
+    .learn-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    .learn-card .icon {
+      font-size: 2em;
+      margin-bottom: 14px;
+    }
+
+    .learn-card h4 {
+      font-size: 1em;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .learn-card p {
+      font-size: 0.85em;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+
+    .speaker-section {
+      padding: 80px 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .speaker-card {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 36px;
+    }
+
+    .speaker-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2em;
+      flex-shrink: 0;
+    }
+
+    .speaker-info h4 {
+      font-size: 1.2em;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .speaker-info .title {
+      font-size: 0.85em;
+      color: #a5b4fc;
+      margin-bottom: 12px;
+    }
+
+    .speaker-info p {
+      font-size: 0.9em;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+    }
+
+    .speaker-clients {
+      margin-top: 12px;
+      font-size: 0.8em;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .audience-section {
+      padding: 80px 24px;
+      background: rgba(139,92,246,0.03);
+    }
+
+    .audience-tags {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    .audience-tag {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 0.9em;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .bottom-cta {
+      text-align: center;
+      padding: 80px 24px;
+    }
+
+    .bottom-cta h2 {
+      font-size: 1.8em;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .bottom-cta p {
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 28px;
+    }
+
+    .bottom-cta-btn {
+      display: inline-block;
+      padding: 16px 36px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.05em;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .bottom-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(99,102,241,0.3);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px 24px;
+      font-size: 0.8em;
+      color: rgba(255,255,255,0.3);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #1a1a2e;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 48px 40px;
+      text-align: center;
+      max-width: 460px;
+      width: 90%;
+    }
+
+    .modal-content .check-icon {
+      font-size: 3em;
+      margin-bottom: 16px;
+    }
+
+    .modal-content h3 {
+      font-size: 1.5em;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .modal-content p {
+      font-size: 0.95em;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .modal-qr {
+      margin: 20px auto;
+      padding: 16px;
+      background: #fff;
+      border-radius: 12px;
+      display: inline-block;
+    }
+
+    .modal-qr img {
+      display: block;
+      width: 180px;
+      height: 180px;
+    }
+
+    .modal-meet-link {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95em;
+      transition: transform 0.2s;
+    }
+
+    .modal-meet-link:hover {
+      transform: translateY(-2px);
+    }
+
+    .modal-note {
+      margin-top: 16px;
+      font-size: 0.8em;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .modal-close {
+      margin-top: 24px;
+      padding: 10px 28px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      color: rgba(255,255,255,0.7);
+      cursor: pointer;
+      font-size: 0.9em;
+      transition: background 0.2s;
+    }
+
+    .modal-close:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-title {
+        font-size: 1.7em;
+      }
+
+      .pain-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .learn-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .speaker-card {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero + Form -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          免費線上說明會｜限額報名中
+        </div>
+        <h1 class="hero-title">
+          事情一直漏、進度一直追<br>
+          不是員工不努力<br>
+          是公司沒有<span class="highlight">工作流</span>
+        </h1>
+        <p class="hero-subtitle">
+          用 Notion 快速落地一套營運工作流，先把任務、責任、進度、排程與回報整理清楚，再讓團隊逐步養成新的管理習慣。<br><br>
+          重點不是學工具，而是學會一套管理方法。
+        </p>
+        <div class="event-details">
+          <div class="event-detail-item">
+            <i class="fas fa-calendar"></i>
+            <span>2025 年 X 月 X 日（三）晚上 8:00 - 9:00</span>
+          </div>
+          <div class="event-detail-item">
+            <i class="fas fa-video"></i>
+            <span>Google Meet 線上進行（報名後立即取得連結）</span>
+          </div>
+          <div class="event-detail-item">
+            <i class="fas fa-clock"></i>
+            <span>60 分鐘｜免費參加</span>
+          </div>
+          <div class="event-detail-item">
+            <i class="fas fa-users"></i>
+            <span>適合 5-30 人規模的中小企業老闆 / 主管</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h3>立即報名</h3>
+        <p class="form-sub">填寫以下資訊，報名成功後立即取得會議連結</p>
+        <form id="registrationForm">
+          <div class="form-group">
+            <label>姓名 *</label>
+            <input type="text" name="name" placeholder="請輸入您的姓名" required>
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" name="email" placeholder="example@company.com" required>
+          </div>
+          <div class="form-group">
+            <label>公司名稱</label>
+            <input type="text" name="company" placeholder="請輸入公司名稱">
+          </div>
+          <div class="form-group">
+            <label>您的角色 *</label>
+            <select name="role" required>
+              <option value="" disabled selected>請選擇</option>
+              <option value="老闆 / 創辦人">老闆 / 創辦人</option>
+              <option value="主管 / PM">主管 / PM</option>
+              <option value="團隊成員 / 個人工作者">團隊成員 / 個人工作者</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>目前最大的管理痛點？</label>
+            <select name="pain">
+              <option value="" disabled selected>請選擇（選填）</option>
+              <option value="進度追蹤困難">進度追蹤困難</option>
+              <option value="任務分配不清">任務分配不清</option>
+              <option value="溝通效率低落">溝通效率低落</option>
+              <option value="工具導入失敗">工具導入失敗</option>
+              <option value="公司擴張混亂">公司擴張混亂</option>
+              <option value="其他">其他</option>
+            </select>
+          </div>
+          <button type="submit" class="submit-btn">確認報名 →</button>
+          <p class="form-note">🔒 您的資料僅用於本次活動通知，不會外洩</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain Points -->
+  <section class="pain-section">
+    <div class="section-header">
+      <h2>這些問題，是不是每天都在發生？</h2>
+      <p>如果你中了 3 個以上，這場說明會就是為你設計的</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-item">
+        <span class="pain-icon">😤</span>
+        <p>交代的事情沒人追，最後都是老闆自己盯</p>
+      </div>
+      <div class="pain-item">
+        <span class="pain-icon">🔄</span>
+        <p>同一件事講三次，還是有人不知道</p>
+      </div>
+      <div class="pain-item">
+        <span class="pain-icon">📱</span>
+        <p>LINE 群組訊息爆炸，重要的事被洗掉</p>
+      </div>
+      <div class="pain-item">
+        <span class="pain-icon">📋</span>
+        <p>買了工具卻沒人用，最後又回到 Excel</p>
+      </div>
+      <div class="pain-item">
+        <span class="pain-icon">🤷</span>
+        <p>不知道誰在忙什麼、做到哪了</p>
+      </div>
+      <div class="pain-item">
+        <span class="pain-icon">🔥</span>
+        <p>公司在成長，但管理方式還停在 5 人時代</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Learn Section -->
+  <section class="learn-section">
+    <div class="section-header">
+      <h2>這場說明會你會學到什麼？</h2>
+      <p>60 分鐘帶你看懂問題本質，找到解法方向</p>
+    </div>
+    <div class="learn-grid">
+      <div class="learn-card">
+        <div class="icon">🧠</div>
+        <h4>心態 × 思維 × 執行力</h4>
+        <p>管理問題的根源不是工具，而是缺乏架構化的思維方式</p>
+      </div>
+      <div class="learn-card">
+        <div class="icon">🏗️</div>
+        <h4>四層管理架構</h4>
+        <p>任務層、專案層、營運層、決策層——從混亂到有序的路徑</p>
+      </div>
+      <div class="learn-card">
+        <div class="icon">⚙️</div>
+        <h4>Notion 實務落地</h4>
+        <p>不是教你功能，而是教你怎麼用工具承載管理方法</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Speaker -->
+  <section class="speaker-section">
+    <div class="section-header">
+      <h2>主講人</h2>
+    </div>
+    <div class="speaker-card">
+      <div class="speaker-avatar">👨‍💼</div>
+      <div class="speaker-info">
+        <h4>政錡｜OBF 營運架構顧問</h4>
+        <p class="title">曜序國際 YaoXu International 創辦人</p>
+        <p>
+          協助中小企業重建營運核心，打造可控、可擴張的管理架構。曾任精誠資訊軟體工程師、蘊域科技產品經理、台灣愛立信項目經理。
+        </p>
+        <div class="speaker-clients">
+          合作企業：大晉企業、寶佳建設、友盛國際科技、威聯創意國際、亮宇興業 等 10+ 家
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Target Audience -->
+  <section class="audience-section">
+    <div class="section-header">
+      <h2>誰適合參加？</h2>
+      <p>如果你符合以下任一身份，這場說明會就是為你設計的</p>
+    </div>
+    <div class="audience-tags">
+      <div class="audience-tag">👔 中小企業老闆 / 創辦人</div>
+      <div class="audience-tag">📌 部門主管 / 專案經理</div>
+      <div class="audience-tag">🧩 想優化效率的團隊成員</div>
+      <div class="audience-tag">🏢 5-30 人規模的公司</div>
+      <div class="audience-tag">🔧 買了工具卻用不起來的團隊</div>
+      <div class="audience-tag">📈 準備擴張但管理跟不上的企業</div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="bottom-cta">
+    <h2>名額有限，立即報名</h2>
+    <p>60 分鐘免費線上說明會，帶你找到公司管理問題的解法</p>
+    <a href="#" class="bottom-cta-btn" onclick="document.querySelector('#top').scrollIntoView({behavior:'smooth'}); return false;">
+      立即報名說明會 →
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    © 2025 曜序國際 YaoXu International. All rights reserved.
+  </div>
+
+  <!-- Success Modal with QR Code -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-content">
+      <div class="check-icon">🎉</div>
+      <h3>報名成功！</h3>
+      <p>請掃描下方 QR Code 或點擊連結<br>加入 Google Meet 會議室</p>
+      <div class="modal-qr">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://meet.google.com/vra-jhud-inw" alt="Google Meet QR Code">
+      </div>
+      <a href="https://meet.google.com/vra-jhud-inw" target="_blank" class="modal-meet-link">
+        <i class="fas fa-video"></i>&nbsp; 點此加入 Google Meet
+      </a>
+      <p class="modal-note">📸 建議截圖保存，活動當天直接掃碼或點連結加入</p>
+      <button class="modal-close" onclick="document.getElementById('successModal').classList.remove('active')">關閉</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var form = this;
+      var submitBtn = form.querySelector('.submit-btn');
+
+      var formData = {
+        name: form.querySelector('input[name="name"]').value,
+        email: form.querySelector('input[name="email"]').value,
+        company: form.querySelector('input[name="company"]').value,
+        role: form.querySelector('select[name="role"]').value,
+        pain: form.querySelector('select[name="pain"]').value
+      };
+
+      if (!formData.name || !formData.email || !formData.role) {
+        alert('請填寫必填欄位（姓名、Email、角色）');
+        return;
+      }
+
+      submitBtn.textContent = '報名中...';
+      submitBtn.disabled = true;
+
+      fetch('https://script.google.com/macros/s/AKfycbxlT8dg0MtrKWrWDS4LN_0to4-dGHWPrWK5A9kSh8tz-h0RuTtdJjBWmWG5QAU2_qxm/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(function() {
+        document.getElementById('successModal').classList.add('active');
+        form.reset();
+        submitBtn.textContent = '確認報名 →';
+        submitBtn.disabled = false;
+      })
+      .catch(function(error) {
+        alert('報名失敗，請稍後再試');
+        submitBtn.textContent = '確認報名 →';
+        submitBtn.disabled = false;
+      });
+    });
+  </script>
+</body>
+</html>
