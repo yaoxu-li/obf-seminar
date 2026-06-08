@@ -15,8 +15,8 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
-      background: #0f0f14;
-      color: #e8e8ed;
+      background: #f5f0e8;
+      color: #2c3a2e;
       line-height: 1.7;
       overflow-x: hidden;
     }
@@ -28,9 +28,9 @@
       justify-content: center;
       padding: 60px 24px;
       background: 
-        radial-gradient(ellipse at 20% 50%, rgba(99,102,241,0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(139,92,246,0.06) 0%, transparent 50%),
-        #0f0f14;
+        radial-gradient(ellipse at 20% 50%, rgba(30,61,47,0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(184,134,42,0.04) 0%, transparent 50%),
+        #f5f0e8;
     }
 
     .hero-inner {
@@ -52,19 +52,19 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(99,102,241,0.1);
-      border: 1px solid rgba(99,102,241,0.3);
+      background: rgba(30,61,47,0.08);
+      border: 1px solid rgba(30,61,47,0.2);
       padding: 6px 14px;
       border-radius: 20px;
       font-size: 0.8em;
-      color: #a5b4fc;
+      color: #1e3d2f;
       width: fit-content;
     }
 
     .badge-dot {
       width: 6px;
       height: 6px;
-      background: #4ade80;
+      background: #4a9468;
       border-radius: 50%;
       animation: pulse 2s infinite;
     }
@@ -78,18 +78,19 @@
       font-size: 2.2em;
       font-weight: 800;
       line-height: 1.3;
-      color: #fff;
+      color: #1e3d2f;
     }
 
     .hero-title .highlight {
-      background: linear-gradient(135deg, #a78bfa, #6366f1);
+      background: linear-gradient(135deg, #b8862a, #d4a03a);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .hero-subtitle {
       font-size: 1em;
-      color: rgba(255,255,255,0.6);
+      color: #2c3a2e;
+      opacity: 0.75;
       line-height: 1.8;
     }
 
@@ -98,7 +99,7 @@
       flex-direction: column;
       gap: 12px;
       padding: 20px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid rgba(30,61,47,0.12);
     }
 
     .event-detail-item {
@@ -106,32 +107,33 @@
       align-items: center;
       gap: 12px;
       font-size: 0.9em;
-      color: rgba(255,255,255,0.7);
+      color: #2c3a2e;
     }
 
     .event-detail-item i {
-      color: #a5b4fc;
+      color: #4a9468;
       width: 18px;
       text-align: center;
     }
 
     .form-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: #ffffff;
+      border: 1px solid #c8d8b8;
       border-radius: 16px;
       padding: 36px;
-      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 24px rgba(30,61,47,0.06);
     }
 
     .form-card h3 {
       font-size: 1.4em;
       margin-bottom: 6px;
-      color: #fff;
+      color: #1e3d2f;
     }
 
     .form-sub {
       font-size: 0.85em;
-      color: rgba(255,255,255,0.5);
+      color: #2c3a2e;
+      opacity: 0.6;
       margin-bottom: 24px;
     }
 
@@ -142,18 +144,19 @@
     .form-group label {
       display: block;
       font-size: 0.85em;
-      color: rgba(255,255,255,0.7);
+      color: #2c3a2e;
       margin-bottom: 6px;
+      font-weight: 500;
     }
 
     .form-group input,
     .form-group select {
       width: 100%;
       padding: 12px 14px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: #f5f0e8;
+      border: 1px solid #c8d8b8;
       border-radius: 8px;
-      color: #fff;
+      color: #2c3a2e;
       font-size: 0.95em;
       transition: border-color 0.3s;
     }
@@ -161,25 +164,26 @@
     .form-group input:focus,
     .form-group select:focus {
       outline: none;
-      border-color: #6366f1;
+      border-color: #4a9468;
+      box-shadow: 0 0 0 3px rgba(74,148,104,0.1);
     }
 
     .form-group input::placeholder {
-      color: rgba(255,255,255,0.3);
+      color: rgba(44,58,46,0.4);
     }
 
     .form-group select option {
-      background: #1a1a2e;
-      color: #fff;
+      background: #fff;
+      color: #2c3a2e;
     }
 
     .submit-btn {
       width: 100%;
       padding: 14px;
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      background: linear-gradient(135deg, #1e3d2f, #2a5440);
       border: none;
       border-radius: 8px;
-      color: #fff;
+      color: #f5f0e8;
       font-size: 1em;
       font-weight: 600;
       cursor: pointer;
@@ -188,7 +192,7 @@
 
     .submit-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(99,102,241,0.3);
+      box-shadow: 0 8px 25px rgba(30,61,47,0.25);
     }
 
     .submit-btn:disabled {
@@ -200,7 +204,7 @@
     .form-note {
       text-align: center;
       font-size: 0.75em;
-      color: rgba(255,255,255,0.4);
+      color: rgba(44,58,46,0.5);
       margin-top: 12px;
     }
 
@@ -217,12 +221,13 @@
 
     .section-header h2 {
       font-size: 1.8em;
-      color: #fff;
+      color: #1e3d2f;
       margin-bottom: 12px;
     }
 
     .section-header p {
-      color: rgba(255,255,255,0.5);
+      color: #2c3a2e;
+      opacity: 0.6;
       font-size: 1em;
     }
 
@@ -233,8 +238,8 @@
     }
 
     .pain-item {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
+      background: #ffffff;
+      border: 1px solid #c8d8b8;
       border-radius: 12px;
       padding: 24px;
       display: flex;
@@ -249,12 +254,12 @@
 
     .pain-item p {
       font-size: 0.95em;
-      color: rgba(255,255,255,0.75);
+      color: #2c3a2e;
     }
 
     .learn-section {
       padding: 80px 24px;
-      background: rgba(99,102,241,0.03);
+      background: #e8dfc8;
     }
 
     .learn-grid {
@@ -266,8 +271,8 @@
     }
 
     .learn-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: #ffffff;
+      border: 1px solid #c8d8b8;
       border-radius: 12px;
       padding: 28px 20px;
       text-align: center;
@@ -280,13 +285,14 @@
 
     .learn-card h4 {
       font-size: 1em;
-      color: #fff;
+      color: #1e3d2f;
       margin-bottom: 8px;
     }
 
     .learn-card p {
       font-size: 0.85em;
-      color: rgba(255,255,255,0.5);
+      color: #2c3a2e;
+      opacity: 0.7;
       line-height: 1.6;
     }
 
@@ -300,8 +306,8 @@
       display: flex;
       align-items: center;
       gap: 32px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: #ffffff;
+      border: 1px solid #c8d8b8;
       border-radius: 16px;
       padding: 36px;
     }
@@ -310,7 +316,7 @@
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      background: linear-gradient(135deg, #1e3d2f, #4a9468);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -320,31 +326,34 @@
 
     .speaker-info h4 {
       font-size: 1.2em;
-      color: #fff;
+      color: #1e3d2f;
       margin-bottom: 4px;
     }
 
     .speaker-info .title {
       font-size: 0.85em;
-      color: #a5b4fc;
+      color: #b8862a;
       margin-bottom: 12px;
+      font-weight: 600;
     }
 
     .speaker-info p {
       font-size: 0.9em;
-      color: rgba(255,255,255,0.6);
+      color: #2c3a2e;
+      opacity: 0.75;
       line-height: 1.7;
     }
 
     .speaker-clients {
       margin-top: 12px;
       font-size: 0.8em;
-      color: rgba(255,255,255,0.4);
+      color: #2c3a2e;
+      opacity: 0.5;
     }
 
     .audience-section {
       padding: 80px 24px;
-      background: rgba(139,92,246,0.03);
+      background: rgba(30,61,47,0.03);
     }
 
     .audience-tags {
@@ -357,53 +366,55 @@
     }
 
     .audience-tag {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: #ffffff;
+      border: 1px solid #c8d8b8;
       padding: 12px 20px;
       border-radius: 30px;
       font-size: 0.9em;
-      color: rgba(255,255,255,0.8);
+      color: #2c3a2e;
     }
 
     .bottom-cta {
       text-align: center;
       padding: 80px 24px;
+      background: #1e3d2f;
     }
 
     .bottom-cta h2 {
       font-size: 1.8em;
-      color: #fff;
+      color: #f5f0e8;
       margin-bottom: 12px;
     }
 
     .bottom-cta p {
-      color: rgba(255,255,255,0.5);
+      color: rgba(245,240,232,0.6);
       margin-bottom: 28px;
     }
 
     .bottom-cta-btn {
       display: inline-block;
       padding: 16px 36px;
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
-      color: #fff;
+      background: linear-gradient(135deg, #b8862a, #d4a03a);
+      color: #1e3d2f;
       text-decoration: none;
       border-radius: 8px;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 1.05em;
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .bottom-cta-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(99,102,241,0.3);
+      box-shadow: 0 8px 25px rgba(184,134,42,0.3);
     }
 
     .footer {
       text-align: center;
       padding: 30px 24px;
       font-size: 0.8em;
-      color: rgba(255,255,255,0.3);
-      border-top: 1px solid rgba(255,255,255,0.05);
+      color: #2c3a2e;
+      opacity: 0.4;
+      border-top: 1px solid #c8d8b8;
     }
 
     .modal-overlay {
@@ -413,7 +424,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.8);
+      background: rgba(30,61,47,0.85);
       backdrop-filter: blur(5px);
       z-index: 1000;
       align-items: center;
@@ -425,8 +436,8 @@
     }
 
     .modal-content {
-      background: #1a1a2e;
-      border: 1px solid rgba(255,255,255,0.1);
+      background: #f5f0e8;
+      border: 1px solid #c8d8b8;
       border-radius: 20px;
       padding: 48px 40px;
       text-align: center;
@@ -441,15 +452,26 @@
 
     .modal-content h3 {
       font-size: 1.5em;
-      color: #fff;
+      color: #1e3d2f;
       margin-bottom: 12px;
     }
 
     .modal-content p {
       font-size: 0.95em;
-      color: rgba(255,255,255,0.6);
+      color: #2c3a2e;
       line-height: 1.7;
       margin-bottom: 20px;
+    }
+
+    .modal-session-info {
+      background: rgba(30,61,47,0.06);
+      border: 1px solid #c8d8b8;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      font-size: 0.9em;
+      color: #1e3d2f;
+      font-weight: 600;
     }
 
     .modal-qr {
@@ -458,6 +480,7 @@
       background: #fff;
       border-radius: 12px;
       display: inline-block;
+      border: 1px solid #c8d8b8;
     }
 
     .modal-qr img {
@@ -470,8 +493,8 @@
       display: inline-block;
       margin-top: 16px;
       padding: 12px 24px;
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
-      color: #fff;
+      background: linear-gradient(135deg, #1e3d2f, #2a5440);
+      color: #f5f0e8;
       text-decoration: none;
       border-radius: 8px;
       font-weight: 600;
@@ -486,23 +509,24 @@
     .modal-note {
       margin-top: 16px;
       font-size: 0.8em;
-      color: rgba(255,255,255,0.4);
+      color: #2c3a2e;
+      opacity: 0.5;
     }
 
     .modal-close {
       margin-top: 24px;
       padding: 10px 28px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(30,61,47,0.08);
+      border: 1px solid #c8d8b8;
       border-radius: 8px;
-      color: rgba(255,255,255,0.7);
+      color: #2c3a2e;
       cursor: pointer;
       font-size: 0.9em;
       transition: background 0.2s;
     }
 
     .modal-close:hover {
-      background: rgba(255,255,255,0.12);
+      background: rgba(30,61,47,0.15);
     }
 
     @media (max-width: 768px) {
@@ -552,7 +576,11 @@
         <div class="event-details">
           <div class="event-detail-item">
             <i class="fas fa-calendar"></i>
-            <span>2025 年 X 月 X 日（三）晚上 8:00 - 9:00</span>
+            <span>場次一：2025/6/24（二）晚上 8:00 - 9:00</span>
+          </div>
+          <div class="event-detail-item">
+            <i class="fas fa-calendar"></i>
+            <span>場次二：2025/7/1（二）晚上 8:00 - 9:00</span>
           </div>
           <div class="event-detail-item">
             <i class="fas fa-video"></i>
@@ -592,6 +620,14 @@
               <option value="老闆 / 創辦人">老闆 / 創辦人</option>
               <option value="主管 / PM">主管 / PM</option>
               <option value="團隊成員 / 個人工作者">團隊成員 / 個人工作者</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>選擇場次 *</label>
+            <select name="session" required>
+              <option value="" disabled selected>請選擇場次</option>
+              <option value="6/24（二）20:00">6/24（二）晚上 8:00</option>
+              <option value="7/1（二）20:00">7/1（二）晚上 8:00</option>
             </select>
           </div>
           <div class="form-group">
@@ -728,10 +764,11 @@
       <div class="check-icon">🎉</div>
       <h3>報名成功！</h3>
       <p>請掃描下方 QR Code 或點擊連結<br>加入 Google Meet 會議室</p>
+      <div class="modal-session-info" id="modalSessionInfo"></div>
       <div class="modal-qr">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://meet.google.com/zzs-zdrq-yhv" alt="Google Meet QR Code">
+        <img id="modalQrImg" src="" alt="Google Meet QR Code">
       </div>
-      <a href="https://meet.google.com/zzs-zdrq-yhv" target="_blank" class="modal-meet-link">
+      <a id="modalMeetLink" href="#" target="_blank" class="modal-meet-link">
         <i class="fas fa-video"></i>&nbsp; 點此加入 Google Meet
       </a>
       <p class="modal-note">📸 建議截圖保存，活動當天直接掃碼或點連結加入</p>
@@ -740,6 +777,13 @@
   </div>
 
   <script>
+    // ===== 場次對應的 Google Meet 連結 =====
+    // 等你建好 Meet 連結後，把下面的網址替換掉就好
+    var sessionLinks = {
+      "6/24（二）20:00": "https://meet.google.com/你的6-24連結",
+      "7/1（二）20:00": "https://meet.google.com/你的7-1連結"
+    };
+
     document.getElementById('registrationForm').addEventListener('submit', function(e) {
       e.preventDefault();
 
@@ -751,11 +795,12 @@
         email: form.querySelector('input[name="email"]').value,
         company: form.querySelector('input[name="company"]').value,
         role: form.querySelector('select[name="role"]').value,
+        session: form.querySelector('select[name="session"]').value,
         pain: form.querySelector('select[name="pain"]').value
       };
 
-      if (!formData.name || !formData.email || !formData.role) {
-        alert('請填寫必填欄位（姓名、Email、角色）');
+      if (!formData.name || !formData.email || !formData.role || !formData.session) {
+        alert('請填寫必填欄位（姓名、Email、角色、場次）');
         return;
       }
 
@@ -771,6 +816,14 @@
         body: JSON.stringify(formData)
       })
       .then(function() {
+        // 根據選擇的場次顯示對應的 QR Code
+        var selectedSession = formData.session;
+        var meetLink = sessionLinks[selectedSession] || '#';
+
+        document.getElementById('modalSessionInfo').textContent = '📅 您報名的場次：' + selectedSession;
+        document.getElementById('modalQrImg').src = 'https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=' + encodeURIComponent(meetLink);
+        document.getElementById('modalMeetLink').href = meetLink;
+
         document.getElementById('successModal').classList.add('active');
         form.reset();
         submitBtn.textContent = '確認報名 →';
