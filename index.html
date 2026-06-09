@@ -258,7 +258,7 @@
     .pain-emoji { font-size: 1.3em; flex-shrink: 0; }
     .pain-text { font-size: 0.88em; font-weight: 500; }
 
-    /* Learn Section - 勾引式 */
+    /* Learn Section */
     .learn-section {
       padding: 70px 24px;
       background: var(--cream);
@@ -304,44 +304,83 @@
       margin-top: 4px;
     }
 
-    /* Results */
-    .results-section {
-      background: var(--dark);
+    /* Case Study */
+    .case-section {
       padding: 70px 24px;
+      background: var(--cream-dark);
+    }
+
+    .case-card {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      padding: 36px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      border: 1px solid rgba(30,61,47,0.08);
+    }
+
+    .case-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(30,61,47,0.08);
+    }
+
+    .case-badge {
+      background: rgba(74,148,104,0.1);
+      color: var(--green);
+      font-size: 0.72em;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .case-title {
+      font-size: 0.95em;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .case-desc {
+      font-size: 0.85em;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .case-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .case-metric {
+      background: rgba(30,61,47,0.03);
+      border: 1px solid rgba(30,61,47,0.06);
+      border-radius: 10px;
+      padding: 16px;
       text-align: center;
     }
 
-    .results-section h2 { color: var(--cream); }
-    .results-section .section-header p { color: rgba(234,229,219,0.6); }
-
-    .results-stats {
-      max-width: 650px;
-      margin: 30px auto 0;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .result-card {
-      background: rgba(74,148,104,0.1);
-      border: 1px solid rgba(74,148,104,0.2);
-      border-radius: 14px;
-      padding: 24px 12px;
-    }
-
-    .result-num {
-      font-size: clamp(1.6em, 3vw, 2.2em);
+    .case-metric-num {
+      font-size: 1.4em;
       font-weight: 900;
-      color: var(--gold-light);
-      margin-bottom: 4px;
+      color: var(--dark);
     }
 
-    .result-label { font-size: 0.72em; color: rgba(234,229,219,0.7); }
+    .case-metric-label {
+      font-size: 0.72em;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
 
     /* Speaker */
     .speaker-section {
       padding: 70px 24px;
-      background: var(--cream-dark);
+      background: var(--cream);
     }
 
     .speaker-card {
@@ -350,24 +389,27 @@
       display: flex;
       align-items: center;
       gap: 28px;
-      background: var(--cream);
+      background: white;
       padding: 36px;
       border-radius: 16px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
 
     .speaker-avatar {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, var(--dark), var(--dark-alt));
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      color: var(--gold-light);
-      font-weight: 700;
+      overflow: hidden;
       flex-shrink: 0;
+      border: 3px solid var(--gold);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .speaker-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
     }
 
     .speaker-name { font-size: 1.1em; font-weight: 700; color: var(--dark); }
@@ -470,7 +512,7 @@
 
     .modal-close:hover { background: rgba(30,61,47,0.15); }
 
-    /* Success in form */
+    /* Success */
     .success-state { display: none; text-align: center; padding: 30px 10px; }
     .success-state.active { display: block; }
     .success-state .success-icon { font-size: 40px; margin-bottom: 12px; }
@@ -483,7 +525,7 @@
       .hero-title { font-size: 1.5em; }
       .info-grid { grid-template-columns: repeat(2, 1fr); }
       .pain-grid { grid-template-columns: 1fr; }
-      .results-stats { grid-template-columns: repeat(2, 1fr); }
+      .case-metrics { grid-template-columns: repeat(2, 1fr); }
       .speaker-card { flex-direction: column; text-align: center; }
     }
   </style>
@@ -623,7 +665,7 @@
     </div>
   </section>
 
-  <!-- Learn Section - 勾引式，不爆雷 -->
+  <!-- Learn Section - 勾引式 -->
   <section class="learn-section">
     <div class="section-header">
       <h2>60 分鐘，你會帶走什麼？</h2>
@@ -661,28 +703,38 @@
     </ul>
   </section>
 
-  <!-- Results - 只放數字 -->
-  <section class="results-section">
+  <!-- Case Study -->
+  <section class="case-section">
     <div class="section-header">
-      <h2>實際導入後的改變</h2>
-      <p>30 人設計製造公司，導入 12 週後</p>
+      <h2>客戶實際成效</h2>
+      <p>不講理論，只看結果</p>
     </div>
-    <div class="results-stats">
-      <div class="result-card">
-        <div class="result-num">50%</div>
-        <div class="result-label">工作效率提升</div>
+    <div class="case-card">
+      <div class="case-header">
+        <span class="case-badge">實際案例</span>
+        <span class="case-title">30 人設計製造公司｜導入 12 週後</span>
       </div>
-      <div class="result-card">
-        <div class="result-num">70%</div>
-        <div class="result-label">重複詢問下降</div>
-      </div>
-      <div class="result-card">
-        <div class="result-num">50%</div>
-        <div class="result-label">會議時間縮短</div>
-      </div>
-      <div class="result-card">
-        <div class="result-num">2週</div>
-        <div class="result-label">新人獨立上手</div>
+      <p class="case-desc">
+        原本每天靠 LINE 追進度、開會開不完、交辦事項不斷漏接。<br>
+        導入營運工作流後，團隊開始自主回報、主管不再逐一追蹤。
+      </p>
+      <div class="case-metrics">
+        <div class="case-metric">
+          <div class="case-metric-num">50%</div>
+          <div class="case-metric-label">工作效率提升</div>
+        </div>
+        <div class="case-metric">
+          <div class="case-metric-num">70%</div>
+          <div class="case-metric-label">重複詢問下降</div>
+        </div>
+        <div class="case-metric">
+          <div class="case-metric-num">50%</div>
+          <div class="case-metric-label">會議時間縮短</div>
+        </div>
+        <div class="case-metric">
+          <div class="case-metric-num">2 週</div>
+          <div class="case-metric-label">新人獨立上手</div>
+        </div>
       </div>
     </div>
   </section>
@@ -693,13 +745,14 @@
       <h2>主講人</h2>
     </div>
     <div class="speaker-card">
-      <div class="speaker-avatar">任</div>
+      <div class="speaker-avatar">
+        <img src="https://media.maiagent.ai/media/chat/attachment/20ad34d6-b6f8-4a61-8fb3-791cead58616.jpg" alt="任立">
+      </div>
       <div>
         <div class="speaker-name">任立｜OBF 營運架構顧問</div>
         <div class="speaker-title">曜序國際 YaoXu International 創辦人</div>
         <p class="speaker-desc">
-          協助 5-30 人中小企業重建營運核心，打造可控、可擴張的管理架構。<br>
-          曾任精誠資訊軟體工程師、蘊域科技產品經理、台灣愛立信項目經理。<br>
+          協助中小企業重建營運核心，打造可控、可擴張的管理架構。<br><br>
           已協助 10+ 家企業完成營運架構升級。
         </p>
       </div>
