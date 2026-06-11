@@ -773,51 +773,94 @@
     <div class="modal-box">
       <div class="modal-icon">✅</div>
       <h3>報名成功！</h3>
-      <p>請掃描 QR Code 或點擊連結加入會議</p>
-      <div class="modal-qr">
+      <p style="font-size: 0.85em; color: var(--text-light); margin-bottom: 15px;">
+        請<strong>「截圖保存」</strong>下方 QR Code，<br>或複製會議連結存入您的行事曆。
+      </p>
+      <div class="modal-qr" style="margin: 10px auto;">
         <img id="modalQrImg" src="" alt="Google Meet QR Code">
       </div>
-      <p class="modal-note">會議連結也會寄至您的 Email</p>
+      
+      <!-- 顯示會議網址與一鍵複製按鈕 -->
+      <div style="margin: 15px 0;">
+        <span id="meetUrlText" style="display: block; font-size: 0.8em; color: var(--green); word-break: break-all; margin-bottom: 8px; font-weight: 500;"></span>
+        <button id="copyBtn" class="modal-meet-link" style="border: none; cursor: pointer; width: 100%; display: block; text-align: center;">複製會議連結</button>
+      </div>
+      
+      <p class="modal-note">會議連結也會同步寄至您的 Email</p>
       <button class="modal-close" onclick="document.getElementById('successModal').classList.remove('active')">關閉</button>
     </div>
   </div>
 
+
+
   <script>
-    document.getElementById('registrationForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var form = this;
-      var submitBtn = form.querySelector('.submit-btn');
-      submitBtn.textContent = '報名中...';
-      submitBtn.disabled = true;
+      document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = this;
+    var submitBtn = form.querySelector('.submit-btn');
+    submitBtn.textContent = '報名中...';
+    submitBtn.disabled = true;
 
-      var formData = new FormData(form);
-      var data = {};
-      formData.forEach(function(value, key) { data[key] = value; });
+    var formData = new FormData(form);
+    var data = {};
+    formData.forEach(function(value, key) { data[key] = value; });
 
-      fetch('https://script.google.com/macros/s/AKfycbxDf3riSzl1pUaYoeauaYlu69-Zuw8uI8n4LGzxjN9Mu6w7359yGJpENo2OSp9KJhrq/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      })
-      .then(function() {
-        document.querySelector('.form-content').classList.add('hidden');
-        document.getElementById('successState').classList.add('active');
+    // 💡 根據選擇的場次設定對應的 Google Meet 連結
+    var meetUrl = 'https://meet.google.com/nzd-xgos-wbc'; // 預設 7/15 場次
+    if (data.session === '7/22') {
+      meetUrl = 'https://meet.google.com/noe-tgsc-qqd'; // 7/22 場次
+    }
 
-        var qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=' + encodeURIComponent('https://meet.google.com/vra-jhud-inw');
-        document.getElementById('modalQrImg').src = qrUrl;
-        document.getElementById('successModal').classList.add('active');
+    fetch('https://script.google.com/macros/s/AKfycbxDf3riSzl1pUaYoeauaYlu69-Zuw8uI8n4LGzxjN9Mu6w7359yGJpENo2OSp9KJhrq/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function() {
+      document.querySelector('.form-content').classList.add('hidden');
+      document.getElementById('successState').classList.add('active');
 
-        form.reset();
-        submitBtn.textContent = '確認報名 →';
-        submitBtn.disabled = false;
-      })
-      .catch(function(error) {
-        alert('報名失敗，請稍後再試');
-        submitBtn.textContent = '確認報名 →';
-        submitBtn.disabled = false;
-      });
+      // 💡 動態產生對應場次的 QR Code
+      var qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=' + encodeURIComponent(meetUrl);
+      document.getElementById('modalQrImg').src = qrUrl;
+      
+      // 💡 顯示會議網址文字
+      document.getElementById('meetUrlText').textContent = meetUrl;
+      
+      // 💡 設定「一鍵複製」按鈕功能
+      var copyBtn = document.getElementById('copyBtn');
+      copyBtn.textContent = '複製會議連結';
+      copyBtn.onclick = function() {
+        navigator.clipboard.writeText(meetUrl).then(function() {
+          copyBtn.textContent = '✓ 已複製連結！';
+          setTimeout(function() { copyBtn.textContent = '複製會議連結'; }, 2000);
+        }).catch(function() {
+          // 備用複製方案（防範部分手機瀏覽器不支援 clipboard API）
+          var tempInput = document.createElement('input');
+          tempInput.value = meetUrl;
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          document.execCommand('copy');
+          document.body.removeChild(tempInput);
+          copyBtn.textContent = '✓ 已複製連結！';
+          setTimeout(function() { copyBtn.textContent = '複製會議連結'; }, 2000);
+        });
+      };
+      
+      document.getElementById('successModal').classList.add('active');
+
+      form.reset();
+      submitBtn.textContent = '確認報名 →';
+      submitBtn.disabled = false;
+    })
+    .catch(function(error) {
+      alert('報名失敗，請稍後再試');
+      submitBtn.textContent = '確認報名 →';
+      submitBtn.disabled = false;
     });
+  });
+
   </script>
 </body>
 </html>
