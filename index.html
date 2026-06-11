@@ -581,8 +581,8 @@
               <label>選擇場次</label>
               <select name="session" required>
                 <option value="">請選擇</option>
-                <option value="6/24">6/24（二）20:00-21:00</option>
-                <option value="7/1">7/1（二）20:00-21:00</option>
+                <option value="7/15">7/15（三）20:00-21:00</option>
+                <option value="7/22">7/22（三）20:00-21:00</option>
               </select>
             </div>
             <div class="form-group">
@@ -612,12 +612,20 @@
   <section class="info-bar">
     <div class="info-grid">
       <div>
-        <div class="info-label">場次一</div>
+        <div class="info-label">場次一(已額滿)</div>
         <div class="info-value">7/1（三）20:00</div>
       </div>
       <div>
-        <div class="info-label">場次二</div>
+        <div class="info-label">場次二(已額滿)</div>
         <div class="info-value">7/8（三）20:00</div>
+      </div>
+      <div>
+        <div class="info-label">場次三</div>
+        <div class="info-value">7/15（三）20:00</div>
+      </div>
+            <div>
+        <div class="info-label">場次四</div>
+        <div class="info-value">7/22（三）20:00</div>
       </div>
     </div>
   </section>
@@ -769,9 +777,6 @@
       <div class="modal-qr">
         <img id="modalQrImg" src="" alt="Google Meet QR Code">
       </div>
-      <a href="https://meet.google.com/vra-jhud-inw" target="_blank" class="modal-meet-link">
-        點擊加入 Google Meet →
-      </a>
       <p class="modal-note">會議連結也會寄至您的 Email</p>
       <button class="modal-close" onclick="document.getElementById('successModal').classList.remove('active')">關閉</button>
     </div>
