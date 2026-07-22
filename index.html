@@ -613,19 +613,19 @@
     <div class="info-grid">
       <div>
         <div class="info-label">場次一(已額滿)</div>
-        <div class="info-value">7/1（三）20:00</div>
-      </div>
-      <div>
-        <div class="info-label">場次二(已額滿)</div>
         <div class="info-value">7/8（三）20:00</div>
       </div>
       <div>
-        <div class="info-label">場次三</div>
+        <div class="info-label">場次二(已額滿)</div>
         <div class="info-value">7/15（三）20:00</div>
+      </div>
+      <div>
+        <div class="info-label">場次三</div>
+        <div class="info-value">7/29（三）20:00</div>
       </div>
             <div>
         <div class="info-label">場次四</div>
-        <div class="info-value">7/22（三）20:00</div>
+        <div class="info-value">8/5（三）20:00</div>
       </div>
     </div>
   </section>
@@ -806,9 +806,9 @@
     formData.forEach(function(value, key) { data[key] = value; });
 
     // 💡 根據選擇的場次設定對應的 Google Meet 連結
-    var meetUrl = 'https://meet.google.com/nzd-xgos-wbc'; // 預設 7/15 場次
-    if (data.session === '7/22') {
-      meetUrl = 'https://meet.google.com/noe-tgsc-qqd'; // 7/22 場次
+    var meetUrl = 'https://calendar.app.google/LHcQ1cMoLCq7F35i9'; // 預設 7/29 場次
+    if (data.session === '8/5') {
+      meetUrl = 'https://calendar.app.google/9zobSs2Eu72Q2fE39'; // 8/5 場次
     }
 
     fetch('https://script.google.com/macros/s/AKfycbxDf3riSzl1pUaYoeauaYlu69-Zuw8uI8n4LGzxjN9Mu6w7359yGJpENo2OSp9KJhrq/exec', {
